@@ -408,3 +408,4 @@ p <- ggpairs(new_df,
   theme_minimal()
 print(p)
 
+
