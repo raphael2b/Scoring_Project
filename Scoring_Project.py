@@ -276,10 +276,6 @@ def main():
     feats = ['tdta', 'reta', 'gempl', 'opita', 'invsls']
     models_multi, table_multi = fit_compare_models(y_train, X_train[feats], feats, "Comparison_Multivariate")
 
-    # ROC Curves Multivariées (Train & Test via Sklearn pour généralisation)
-    # Note: On réutilise les modèles ajustés ci-dessus pour le train,
-    # mais on refait un fit clean sklearn pour la comparaison train/test demandée à la fin
-
     print("Generating Comparative ROC (Sklearn wrapper)...")
     scaler = StandardScaler()
     X_tr_sc = scaler.fit_transform(X_train[feats])
@@ -324,7 +320,6 @@ def main():
     # Calcul T-stat vectorisé: t = r * sqrt(n-2) / sqrt(1-r^2)
     # Note: Simplification ici car gérer les NaNs par paire comme le code original est très lent.
     # Pour optimisation, on assume n global ou on utilise une méthode matricielle si n varie peu.
-    # Ici, je garde la logique visuelle.
 
     mask = np.triu(np.ones_like(corr_mat, dtype=bool))
 
