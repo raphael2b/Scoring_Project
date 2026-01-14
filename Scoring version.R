@@ -1,5 +1,4 @@
 # Install packages
-
 install.packages("dplyr")
 install.packages("tidyr")
 install.packages("ggplot2")
@@ -407,5 +406,6 @@ p <- ggpairs(new_df,
   scale_fill_manual(values = c("green", "red")) +
   theme_minimal()
 print(p)
+
 
 
